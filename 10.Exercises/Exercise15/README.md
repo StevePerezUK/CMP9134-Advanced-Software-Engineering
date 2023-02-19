@@ -1,0 +1,3 @@
+#### Exercise 15:
+
+Create a script which implements the hangman game. First define a list of 10 words. The script randomly selects one of them and the objective is the user to guess the word. At each iteration the user inputs a letter and the script returns if the letter is part of the word. The script iterates until the user provides correctly all the letters of the word (win condition) or the user has done 9 wrong guesses (lose condition)
