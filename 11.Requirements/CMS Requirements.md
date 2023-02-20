@@ -20,14 +20,14 @@ In addition, a CMS is typically integrated with other databases in the universit
  - FID2 - An area for student posting of papers and other assignments
  - FID3 - A grade book where faculty can record grades and each student can view his or her grades 
  - FID4 An integrated email tool allowing participants to send announcement email messages to the entire class or to a subset of the entire class
-•	FID5 - A chat tool allowing synchronous communication among class participants
-•	FID6 - A threaded discussion board allowing asynchronous communication among participants FID7 – The CMS 
-•	FID7 - Department personnel, academic senate, and registrar staff to view, enter, and manage course information formerly submitted via paper.
-•	FID8 - Departments can use CMS to create new course proposals, submit changes for existing courses, and track the progress of proposals as they move through the stages of online approval.
-Non Functional Requirements
-•	NFID1 – Must be an online service
-•	NFID2 – Must have different user roles
-o	Student
+ - FID5 - A chat tool allowing synchronous communication among class participants
+ - FID6 - A threaded discussion board allowing asynchronous communication among participants 
+ - FID7 - Department personnel, academic senate, and registrar staff to view, enter, and manage course information formerly submitted via paper.
+ - FID8 - Departments can use CMS to create new course proposals, submit changes for existing courses, and track the progress of proposals as they move through the stages of online approval.
+# Non Functional Requirements
+ - NFID1 – Must be an online service
+ - NFID2 – Must have different user roles 
+     - Student
 o	Faculty
 o	Department personnel
 o	Academic senate, 
