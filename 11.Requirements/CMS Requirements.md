@@ -1,6 +1,6 @@
 # Proposal
-### COURSE MANAGEMENT SYSTEM (CMS)
-#### Problem Definition: 
+## COURSE MANAGEMENT SYSTEM (CMS)
+### Problem Definition: 
 A course management system (CMS) is a collection of software tools providing an online environment for course interactions. A CMS typically includes a variety of online tools and environments, such as:
 - An area for faculty posting of class materials such as course syllabus and handouts
 - An area for student posting of papers and other assignments
@@ -20,8 +20,16 @@ In addition, a CMS is typically integrated with other databases in the universit
 
 # Functional requirements
  - FID1 - An area for faculty posting of class materials such as course syllabus and handouts
+  - 1.1 - A multi tenanted bulletin board with tennants as follows
+   - faculty 
+   - student groups by course 
+   - A facility to allow the upload of course materials to include, 
+    - 1.1.1 - Microsoft formats and text files. **TBA**
+  - 1.2 - A view only permission group for students
+  - 1.3 
  - FID2 - An area for student posting of papers and other assignments
  - FID3 - A grade book where faculty can record grades and each student can view his or her grades 
+  - 3.1   
  - FID4 - An integrated email tool allowing participants to send announcement email messages to the entire class or to a subset of the entire class
  - FID5 - A chat tool allowing synchronous communication among class participants
  - FID6 - A threaded discussion board allowing asynchronous communication among participants 
@@ -42,5 +50,7 @@ In addition, a CMS is typically integrated with other databases in the universit
 - NFID5 – System needs to be connected to the University Network with access to databases as follows:
     - TBD
 - NFID6 – The CMS should be a website	
-
+- NFID7 - Document sizes must be at least 10Mb - TBA
+- NFID8 - Housekeeping of files in bulletin boards will be automated. 
+ - 8.1 - Student files will be deleted after 6 months of the student leaving the university 
 
