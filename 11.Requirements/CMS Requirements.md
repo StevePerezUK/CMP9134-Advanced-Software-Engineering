@@ -20,16 +20,19 @@ In addition, a CMS is typically integrated with other databases in the universit
 
 # Functional requirements
  - FID1 - An area for faculty posting of class materials such as course syllabus and handouts
-  - 1.1 - A multi tenanted bulletin board with tennants as follows
-   - faculty 
-   - student groups by course 
-   - A facility to allow the upload of course materials to include, 
-    - 1.1.1 - Microsoft formats and text files. **TBA**
-  - 1.2 - A view only permission group for students
-  - 1.3 
- - FID2 - An area for student posting of papers and other assignments
- - FID3 - A grade book where faculty can record grades and each student can view his or her grades 
-  - 3.1   
+ - FID1.1 - A multi tenanted bulletin board with tennants as follows
+     - faculty 
+     - student groups by course 
+- FID1.1.2 - A facility to allow the upload of course materials to include, 
+    - Microsoft formats and text files. **TBA**
+    - A view only permission group for students
+    - A read/write permission group for faculty
+- FID1.1.3 - A facility for faculty to create, delete and update messages  
+- FID2 - An area for student posting of papers and other assignments
+- FID3 - A grade book where faculty can record grades and each student can view his or her grades 
+- FID3.1 - The grade book should access the grade database in real time
+- FID3.2 - The grade book must only show grades relating to the authenticated student
+- FID3.3 - The grade book will allow reading of all student grades by a faculty member - **TBC**
  - FID4 - An integrated email tool allowing participants to send announcement email messages to the entire class or to a subset of the entire class
  - FID5 - A chat tool allowing synchronous communication among class participants
  - FID6 - A threaded discussion board allowing asynchronous communication among participants 
