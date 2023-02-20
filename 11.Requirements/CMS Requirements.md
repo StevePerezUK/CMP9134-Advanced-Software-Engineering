@@ -27,18 +27,17 @@ In addition, a CMS is typically integrated with other databases in the universit
 # Non Functional Requirements
  - NFID1 – Must be an online service
  - NFID2 – Must have different user roles 
-     - Student
-o	Faculty
-o	Department personnel
-o	Academic senate, 
-o	Registrar staff
-o	Course administrator
+    - Student
+    - Faculty
+    - Department personnel
+    - Academic senate, 
+    - Registrar staff
+    - Course administrator
 
-•	NFID3 – Must have an Email SMTP service 
-•	NFID4 – Chat agent and server functionality
-•	NFID5 – System needs to be connected to the University Network with access to databases as follows:
--	TBD
-•	NFID6 – The CMS should be a website
-•	
+- NFID3 – Must have an Email SMTP service 
+- NFID4 – Chat agent and server functionality
+- NFID5 – System needs to be connected to the University Network with access to databases as follows:
+    - TBD
+- NFID6 – The CMS should be a website	
 
 
