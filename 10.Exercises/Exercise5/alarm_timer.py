@@ -38,10 +38,55 @@
 
 
 class GetInput(object):
-    pass
+    
+    def __init__(self):
+        self.start_hours = 0
+        self.future_hours = 0
+        self.current_hour = 0
+
+    def get_inputs(self):
+        while True:
+            try:
+                self.current_hour= input("Please enter the current hour in two digits: ")
+                if int(self.current_hour) > 24 or int(self.current_hour) < 0:
+                    raise Exception
+                if not len(self.current_hour) == 2:
+                    raise Exception 
+            except:
+                print("Please enter a number between 00 and 24")
+                continue
+            break
+        while True:
+            try:
+                self.future_hours = input("Please enter the number of hours till the alarm will activate: ")
+                if int(self.future_hours) < 0:
+                    raise Exception
+            except:
+                print("Please enter an integer for number of hours")
+                continue
+            break
 
 class CalculateHours(GetInput):
-    pass
 
+    def __init__(self):
+        super().__init__()
+        self.get_inputs()
+        self.alarm_hour = 0
+    
+    def calculate_hours(self):
+        self.alarm_hour = (int(self.current_hour) + int(self.future_hours)) % 24
+    
 class GiveAnswer(CalculateHours):
-    pass
+    
+    def __init__(self):
+        super().__init__()
+        self.calculate_hours()
+
+    def print_answer(self):
+        print("Your alarm will sound at {:02}:00".format(self.alarm_hour))
+
+
+sleep_timer = GiveAnswer()
+sleep_timer.print_answer()
+
+
