@@ -90,43 +90,39 @@ class InitGame(object):
             'bird',
             'keys'
         ]
-        self._prompt_char = "_"
-        self._guess_word = self.select_word()
-        self._list_len = self.init_display(self._guess_word)
-        self._display_list = self.init_list(self._guess_word)
-        self._max_guess_count = 7
-        self._guess_count = 0
+        self.prompt_char = "_"
+        self.guess_word = ""
+        self.display_list = []
+        self.max_guess_count = 7
+        self.guess_count = 0
+        self.select_word()
+        self.init_list()
 
-
-    def init_display(self,guess_word):
+    def init_display(self):
         print("Welcome to Hangman") 
-        print("Word = ",end='')
-        return self.init_list(len(guess_word))
-        
-    def init_list(self,len):
-        list = []
-        for el in range(0,len):
-            list.append(self._prompt_char)
-        self.print_prompt(len)
-        return list
-    
-    def print_prompt(self,len):
-        for el in range(0,len):
-            print("{0} ".format(el),end='')
-        print("")
+        print("Word = ",end='') 
 
+    def init_list(self):
+        len_word = len(self.guess_word) 
+        for el in range(0,len_word):
+            self.display_list.append(self.prompt_char)
+    
+    def print_prompt(self):
+        import sys
+        len_word = len(self.guess_word) 
+        for el in range(0,int(len_word)):
+            print("{0} ".format(self.display_list[el]),end='')
+        print("")
+ 
     def select_word(self):
         import random as r
         index = r.randint(0,9)
-        return self._word_list[index]
+        self.guess_word = self._word_list[index]
     
     
 class GameInput(object):
-    
-    def __init__():
-        pass
-
-    def get_guess(self):
+ 
+    def get_guess(guess):
         while True:
             guess= input("\nPlease Guess a letter of the word: ")
             if len(guess) > 1:
@@ -134,49 +130,53 @@ class GameInput(object):
                 continue
             return guess
 
-    def lose_message():
+    def lose_message(self):
         print("{0}".format("You Lose Cowboy"))
-
-    def win_message():
+        return
+    
+    def win_message(self):
         print("{0}".format("You WIN Cowboy!"))  
-
+        return
 
 class GameControl(InitGame,GameInput):
 
     def __init__(self):
-        super().__init__()
-        self.run_game(self._guess_count,self._prompt_char)
+        InitGame.__init__(self)
 
-    def run_game(self,guess_count,prompt_char):
+    def run_game(self):
         import sys
+        #print("secret word = {}".format(self.guess_word))
+        self.init_display()
+        set_exit = False
         while True:
+            self.print_prompt()
+            if set_exit:
+                sys.exit(0)
             guess= self.get_guess()
-            print(guess)
-            sys.exit(1)
-            return_dict = self.match_letter(guess,self._guess_word,self._display_list)
+            return_dict = self.match_letter(guess,self.guess_word,self.display_list)
             if self.check_winner():
                 self.win_message()
-                break               
-            if not self.check_loser(return_dict,guess_count,prompt_char):
-                break
+                set_exit = True          
+            if not self.check_loser(return_dict):
+                set_exit = True
         
 
-    def check_loser(self,rd,guess_count,prompt_char):
+    def check_loser(self,rd):
         if not rd['outcome']:
-            guess_count += 1
-        if guess_count == self._max_guess_count:
+            self.guess_count += 1
+        if self.guess_count == self.max_guess_count:
             self.lose_message()
             return False
         else:
             return True
 
-    def check_winner(prompt_char,display_list):
-        for el in display_list:
-            if str(el) == str(prompt_char):
+    def check_winner(self):
+        for el in self.display_list:
+            if str(el) == str(self.prompt_char):
                 return False
         return True
 
-    def match_letter(guess, guess_word,display_list):
+    def match_letter(self,guess, guess_word,display_list):
         match= guess_word.find(guess)
         if match == -1:
             return {'outcome' : False, 'display_list' : display_list }
