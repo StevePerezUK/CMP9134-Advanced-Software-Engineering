@@ -138,11 +138,32 @@ class GameInput(object):
         print("{0}".format("You WIN Cowboy!"))  
         return
 
+
 class GameControl(InitGame,GameInput):
 
     def __init__(self):
         InitGame.__init__(self)
+      
 
+
+    #Decorator
+    def log_time(inner_function):
+        
+        import datetime
+        import inspect
+
+        def inner_log_time(*args,**kwargs):
+            print("Line: {2} {1} - start: {0}".format(datetime.datetime.utcnow(),
+                                                    inspect.stack()[1][4],
+                                                    inspect.stack()[1][2]))
+            inner_function(*args,**kwargs)
+            print("Line: {2} {1} - end: {0}  ".format(datetime.datetime.utcnow(),
+                                                        inspect.stack()[1][4],
+                                                        inspect.stack()[1][2]))
+        return inner_log_time
+
+
+    @log_time
     def run_game(self):
         import sys
         #print("secret word = {}".format(self.guess_word))
@@ -151,7 +172,7 @@ class GameControl(InitGame,GameInput):
         while True:
             self.print_prompt()
             if set_exit:
-                sys.exit(0)
+                break
             guess= self.get_guess()
             return_dict = self.match_letter(guess,self.guess_word,self.display_list)
             if self.check_winner():
@@ -160,7 +181,7 @@ class GameControl(InitGame,GameInput):
             if not self.check_loser(return_dict):
                 set_exit = True
         
-
+    @log_time
     def check_loser(self,rd):
         if not rd['outcome']:
             self.guess_count += 1
@@ -170,12 +191,13 @@ class GameControl(InitGame,GameInput):
         else:
             return True
 
+    @log_time
     def check_winner(self):
         for el in self.display_list:
             if str(el) == str(self.prompt_char):
                 return False
         return True
-
+    
     def match_letter(self,guess, guess_word,display_list):
         match= guess_word.find(guess)
         if match == -1:
