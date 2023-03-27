@@ -4,6 +4,7 @@ import math
 
 def is_prime(num):
 
+    
     '''Check if num is prime or not.'''
     if type(num) != int:
         raise TypeError('num is of invalid type')
