@@ -16,6 +16,9 @@ class TestIsPrime(unittest.TestCase):
     
     def test_simple_prime45(self):
         self.assertFalse(ip(45))
+    
+    def test_simple_prime45(self):
+        self.assertFalse(ip(47))
 
     def test_large_prime11587(self):
         self.assertTrue(ip(11587))
