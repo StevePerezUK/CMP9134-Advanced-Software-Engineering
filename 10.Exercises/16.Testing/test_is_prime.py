@@ -6,7 +6,7 @@ import unittest
 
 class TestIsPrime(unittest.TestCase):
     def test_simple_prime(self):
-        self.assertTrue(ip(4))
+        self.assertTrue(ip(1))
 
     def test_simple_non_prime(self):
         self.assertTrue(ip(2))
